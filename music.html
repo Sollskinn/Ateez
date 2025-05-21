@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ATEEZ Discography</title>
+  <style>
+    html {
+      background: url('https://assets.readbrightly.com/wp-content/uploads/2021/09/9780593324813-8.jpeg') no-repeat center top;
+      background-size: cover;
+      background-attachment: scroll;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: white;
+      margin: 0;
+      background-color: transparent;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      z-index: 3;
+    }
+
+    nav a {
+      color: black;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff9900;
+    }
+
+
+ .logo-img {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    width: 80px; 
+    height: auto;
+    z-index: 5; 
+  }
+
+
+
+    .logo-block {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .logo-text {
+      font-size: 120px;
+      font-weight: bold;
+      letter-spacing: 11px;
+      color: black;
+      max-width: 100%;
+      padding: 0 20px;
+      word-wrap: break-word;
+    }
+
+    .main-content {
+      padding: 100px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 48px;
+      color: black;
+      margin-bottom: 50px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .top-tracks {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 15px;
+      margin-bottom: 80px;
+    }
+
+    .track {
+      margin-bottom: 40px;
+    }
+
+    .track-number {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ff9900;
+      margin-bottom: 10px;
+    }
+
+    .track-title {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .track-description {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #ddd;
+    }
+
+    .video-container {
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%;
+      position: relative;
+      margin-top: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .albums-section {
+      margin-top: 80px;
+    }
+
+    .albums-grid {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .album {
+      width: 300px;
+      cursor: pointer;
+      transition: transform 0.3s;
+      text-align: center;
+    }
+
+    .album:hover {
+      transform: translateY(-10px);
+    }
+
+    .album-cover {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .album-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: black;
+    }
+
+    .album-year {
+      font-size: 16px;
+      color: #777;
+      margin-top: 5px;
+    }
+
+    .tracks-container {
+      background-color: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      display: none;
+    }
+
+    .tracks-container.active {
+      display: block;
+    }
+
+    .track-item {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .track-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .track-name {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+   .stream-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.stream-links a {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+.stream-links a:hover {
+  transform: scale(1.15);
+}
+
+.stream-links svg {
+  width: 100%;
+  height: 100%;
+}
+
+    footer {
+      background-color: rgba(34, 34, 34, 0.8);
+      padding: 30px 20px;
+      margin-top: 15px;
+      text-align: center;
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 20px;
+    }
+
+    .social-links img {
+      width: 30px;
+      transition: transform 0.3s;
+    }
+
+    .social-links img:hover {
+      transform: scale(1.2);
+    }
+
+    .copyright {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    /* планшет */
+    @media (max-width: 1024px) {
+      .logo-text {
+        font-size: 120px;
+      }
+      
+      .section-title {
+        font-size: 40px;
+      }
+      
+      .album {
+        width: 250px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        top: 15px;
+        right: 20px;
+      }
+      
+      nav a {
+        font-size: 14px;
+        margin-left: 15px;
+      }
+      
+      .logo-text {
+        font-size: 80px;
+        letter-spacing: 5px;
+      }
+      
+      .section-title {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+      
+      .top-tracks {
+        padding: 25px;
+      }
+      
+      .track-title {
+        font-size: 26px;
+      }
+      
+      .track-description {
+        font-size: 16px;
+      }
+      
+      .albums-grid {
+        gap: 30px;
+      }
+      
+      .album {
+        width: 220px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-text {
+        font-size: 60px;
+      }
+      
+      .album {
+        width: 100%;
+        max-width: 280px;
+      }
+      
+      .stream-links a {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="main.html">Главная</a>
+      <a href="about.html">О группе</a>
+    </nav>
+  </header>
+
+<img 
+  src="logo1.jpg" 
+  alt="ATEEZ Logo" 
+  class="logo-img"
+  width="90" 
+  height="55">
+
+
+  <div class="logo-block">
+    <div class="logo-text">DISCOGRAPHY</div>
+  </div>
+
+  <div class="main-content">
+    <h2 class="section-title">ТОП-5 треков ATEEZ</h2>
+    
+    <div class="top-tracks">
+
+       <div class="track">
+        <div class="track-number">1</div>
+        <h3 class="track-title">Bouncy</h3>
+        <p class="track-description">
+          Зажигательный трек с мощным битом и взрывной энергетикой, ставший вирусным хитом с более чем 141 миллионами просмотров на YouTube. Идеальный микс яркой концепции, цепляющего припева и фирменной харизмы ATEEZ, который покорил фанатов по всему миру.
+        </p>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/-jFpPvrYTpY" 
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+  </iframe>
+        </div>
+      </div>
+
+      
+      <div class="track">
+        <div class="track-number">2</div>
+        <h3 class="track-title">Wonderland</h3>
+        <p class="track-description">
+          Самая просматриваемая песня ATEEZ на YouTube с более чем 139 миллионами просмотров. 
+          Эпическая композиция с мощными ударными и военной эстетикой.
+        </p>
+        <div class="video-container">
+         <iframe src="https://www.youtube.com/embed/-uDitNeFO-I" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen> 
+      </iframe>
+        </div>
+      </div>
+
+      
+<div class="track">
+        <div class="track-number">3</div>
+        <h3 class="track-title">Crazy Form</h3>
+        <p class="track-description">
+          Энергичный и харизматичный трек с яркой хореографией и мощным битом. Выделяется визуальной эстетикой и набрал более 130 миллионов просмотров на YouTube.
+        </p>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/kSWpi7E6pU0"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+  </iframe>
+        </div>
+      </div>
+
+     <div class="track">
+        <div class="track-number">4</div>
+        <h3 class="track-title">Answer</h3>
+        <p class="track-description">
+          Мощный трек с драматичным вступлением и эпичным хором. 
+          Занимает второе место по популярности на YouTube с более чем 96 миллионами просмотров.
+        </p>
+        <div class="video-container">
+         <iframe src="https://www.youtube.com/embed/YDOYmJedFF8"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+  </iframe>
+        </div>
+      </div>
+      
+     <div class="track">
+        <div class="track-number">5</div>
+        <h3 class="track-title">Inception</h3>
+        <p class="track-description">
+          Песня с атмосферным звучанием и кинематографическим видеоклипом, 
+          набравшая более 89 миллиона просмотров на YouTube.
+        </p>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/eyggo5-kHhc"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+  </iframe>
+        </div>
+      </div>
+     </div>
+    
+    <div class="albums-section">
+      <h2 class="section-title">Альбомы ATEEZ</h2>
+      
+      <div class="albums-grid">
+
+        <div class="album" onclick="showTracks('beyond-zero')">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTirM5YXsVALKC2WzZRJZ_7YEZG5znhi5DATg&s" 
+               alt="BEYOND : ZERO" 
+               class="album-cover">
+          <h3 class="album-title">BEYOND : ZERO</h3>
+          <p class="album-year">2022</p>
+        </div>
+        
+        <div class="album" onclick="showTracks('world-ep1')">
+          <img src="https://m.media-amazon.com/images/I/611nSBpyMuL._AC_UF894,1000_QL80_.jpg" 
+               alt="THE WORLD EP.1 : MOVEMENT" 
+               class="album-cover">
+          <h3 class="album-title">THE WORLD EP.1 : MOVEMENT</h3>
+          <p class="album-year">2022</p>
+        </div>
+        
+        <div class="album" onclick="showTracks('world-fin')">
+          <img src="https://lastfm.freetls.fastly.net/i/u/300x300/20fc2c539ddb5613ccec12b6d01c0cff.jpg" 
+               alt="THE WORLD EP.FIN : WILL" 
+               class="album-cover">
+          <h3 class="album-title">THE WORLD EP.FIN : WILL</h3>
+          <p class="album-year">2023</p>
+        </div>
+      </div>
+      
+    
+      <div class="tracks-container" id="beyond-zero">
+        <div class="track-item">
+          <div class="track-name">INTRO [BEYOND: ZERO]</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/track/4aXiMrvpX3cyycjAq2pAfS?si=8b7bc9d4b3ee4a8b" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+            <a href="https://music.apple.com/ru/song/intro-beyond-zero/1620856393" target="_blank" title="Apple Music">
+              <img src="https://cdn-icons-png.flaticon.com/512/1792/1792825.png" alt="Apple Music">
+            </a>
+            <a href="https://music.youtube.com/watch?v=gpvziLy4DOw&si=8TsxSV1GJpngMoaK" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+       
+
+        <div class="track-item">
+          <div class="track-name">Rocky</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/track/0saINH3AvsKEfawtcAfW40?si=8118f623603042e4" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+            <a href="https://music.apple.com/ru/song/rocky-boxers-ver/1620856396" target="_blank" title="Apple Music">
+              <img src="https://cdn-icons-png.flaticon.com/512/1792/1792825.png" alt="Apple Music">
+            </a>
+            <a href="https://music.youtube.com/watch?v=-1HI2yiZ8Lg&si=eF9Epidrzs0DvWPC" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+        
+
+        <div class="track-item">
+          <div class="track-name">The King </div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/artist/68KmkJeZGfwe1OUaivBa2L?si=1d25f2e3f88545bb" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+            <a href="https://music.apple.com/ru/song/the-king/1620856397" target="_blank" title="Apple Music">
+              <img src="https://cdn-icons-png.flaticon.com/512/1792/1792825.png" alt="Apple Music">
+            </a>
+            <a href="https://music.youtube.com/watch?v=sexGWoKpav0&si=Hk76f95Vf2GB7Db9" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">Deja Vu (japanese ver.)</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/2Mv8lQxFrpmDxulzBU0PTu" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+            <a href="https://embed.music.apple.com/ru/song/deja-vu-japanese-ver/1620856395" target="_blank" title="Apple Music">
+              <img src="https://cdn-icons-png.flaticon.com/512/1792/1792825.png" alt="Apple Music">
+            </a>
+            <a href="https://music.youtube.com/watch?v=Ti5vvKogWwI" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">Fireworks (I'm The One) - Japanese ver.</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/6LBe3VOGzGUj8OQrelBCSp" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+            <a href="https://embed.music.apple.com/ru/song/1620856401" target="_blank" title="Apple Music">
+     <img src="https://cdn-icons-png.flaticon.com/512/1792/1792825.png" alt="Apple Music">
+      </a>
+         <a href="https://music.youtube.com/watch?v=3kEue1RFS84" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">Take me home </div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/4FVGGXr4KzVnHRPIuA4XUl" target="_blank" title="Spotify">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+            <a href="https://embed.music.apple.com/ru/song/1620856400" target="_blank" title="Apple Music">
+              <img src="https://cdn-icons-png.flaticon.com/512/1792/1792825.png" alt="Apple Music">
+          </a>
+         <a href="https://music.youtube.com/watch?v=MLCUw8Ct33E" target="_blank" title="YouTube">
+           <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">Turbulance </div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/0v5lQBau7s6GN4rZV0o9kM" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+            <a href="https://embed.music.apple.com/ru/song/1620856398" target="_blank" title="Apple Music">
+              <img src="https://cdn-icons-png.flaticon.com/512/1792/1792825.png" alt="Apple Music">
+            </a>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="tracks-container" id="world-ep1">
+        <div class="track-item">
+          <div class="track-name">Guerrilla</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/track/0tYZo2UhV1lrUez5CA0Iyw?si=bd3d3e6a79cc4f4b" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+            <a href="https://music.apple.com/ru/song/guerrilla-flag-version/1656355463" target="_blank" title="Apple Music">
+              <img src="https://cdn-icons-png.flaticon.com/512/1792/1792825.png" alt="Apple Music">
+            </a>
+            <a href="https://music.youtube.com/watch?v=RMriszhSxFw&si=L5mfa1DJMehmr2_9" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+        
+
+        <div class="track-item">
+          <div class="track-name">Sector 1</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/track/1V1btvvh0M47BWClDsiCqZ?si=066ac10dfd884b20" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+                        <a href="https://music.youtube.com/watch?v=fx_7hPASwV0&si=Pa9m22O075oQV_zz" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+        
+
+        <div class="track-item">
+          <div class="track-name">Cyberpunk</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/track/2Ax4rdLenBhULX7nRbhful?si=dd225aaafd3f4273" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+                        <a href="https://music.youtube.com/watch?v=JWKaccs2IAM&si=94Yfx8wDPOZ3Ll2x" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">Propaganda</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/5DlFiQX9LUiSI0QuBi0JA7"" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+             <a href="https://music.youtube.com/watch?v=My7gjN7ez-k" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">The Ring</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/1s9dHDYdTjQo1Ow8MoF9nV" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+           <a href="https://music.youtube.com/embed/tR31XX-BsAQ" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">WDIG (Where Do I Go)</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/2pwEbLrm8PkgplnTRG6bSL" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+        <a href="https://music.youtube.com/embed/89ywGBL4mOo" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">New World</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/0rvQzaVeceFaksUoeyonXws" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+      <a href="https://music.youtube.com/embed/9_xKGr2OPv0" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+      </div>
+      
+
+
+      <div class="tracks-container" id="world-fin">
+        <div class="track-item">
+          <div class="track-name">WE KNOW</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/track/6kgKJoTZgfxCmtb4gubA68?si=c681fa522d344da4" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+                        <a href="https://music.youtube.com/watch?v=910397KV1uE&si=7jzwCBpNIoQt27-l" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+        
+        <div class="track-item">
+          <div class="track-name">ARRIBA</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/track/5wZu9Hw69jORB2OxeX3qC6?si=1a50a353f61a47c8" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+      <a href="https://music.youtube.com/watch?v=_Pd5fZDV33M&si=ObLOdk1pr80mqE0a" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+        
+
+        <div class="track-item">
+          <div class="track-name">Silver light</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/track/7hWW1JxF5ArjPgAsGlwSuz?si=f5d6725f09184671" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+            <a href="https://music.youtube.com/watch?v=rMx4Mdv46zY&si=i_58mV7J2P3bLh9q" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">Emergency</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/0dncBD42Ek18rPQw8dZCkH" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+          <a href="https://music.youtube.com/watch?v=lD7QRNykbg8" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">Crazy Form</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/2KoeSRTm9cRulYnkaEyUaP" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+           <a href="https://music.youtube.com/watch?v=9t57C7NcjWo" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">Crescent Part 2</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/0U4dBMN9DqaD6fcTd5hFrL" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+           <a href="https://music.youtube.com/watch?v=h7mCmsMP9UU" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">Dreamy Day</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/4vk0If3wzFnqTsfn21HER7" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+       <a href="https://music.youtube.com/watch?v=-DscbD-vYgk" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">MATZ (Hongjoong, Seonghwa)</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/track/7hWW1JxF5ArjPgAsGlwSuz?si=f5d6725f09184671" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+       <a href="https://music.youtube.com/watch?v=3PA5FG1NX9U" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">IT's You (Yeosang,San,Wooyoung)</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/7B8BU9kWRWUVSppWQGdgiz" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+         <a href="https://music.youtube.com/watch?v=CeIODBamkQ0" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">Youth (Yunho,Mingi)</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/136oL23K6A6g4PvptBWcS7" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+             <a href="https://music.youtube.com/watch?v=Wv1moh1Dvqw" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">Everything (Jongho)</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/5vJr5hBQv8MqgBHOiaMvZA" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+          <a href="https://music.youtube.com/watch?v=0FTL_zgvzAM" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+
+<div class="track-item">
+          <div class="track-name">FINN: WILL</div>
+          <div class="stream-links">
+            <a href="https://open.spotify.com/embed/track/2Nk2AbS02HaI1tgWTApkGJ" target="_blank" title="Spotify">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+            </a>
+          <a href="https://music.youtube.com/watch?v=MCG0DJLeEyo" target="_blank" title="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ <footer style="background-color: rgba(34, 34, 34, 0.8); padding: 30px 20px; margin-top: 75px; text-align: center; color: white;">
+
+  <p style="margin-bottom: 20px; font-size: 18px;">Следите за ATEEZ в соцсетях</p>
+
+  <div style="display: flex; justify-content: center; gap: 25px; margin-bottom: 20px;">
+    <a href="https://www.instagram.com/ateez_official_" target="_blank" style="text-decoration: none;">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" style="width: 30px;">
+    </a>
+    <a href="https://www.tiktok.com/@ateez_official_" target="_blank" style="text-decoration: none;">
+      <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" style="width: 30px;">
+    </a>
+    <a href="https://www.youtube.com/c/ATEEZofficial" target="_blank" style="text-decoration: none;">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" style="width: 30px;">
+    </a>
+    <a href="https://twitter.com/ATEEZofficial" target="_blank" style="text-decoration: none;">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384065.png" alt="X/Twitter" style="width: 30px;">
+    </a>
+  </div>
+
+  <p style="font-size: 14px; color: #ccc;">© 2025 ATEEZ. Все права защищены.</p>
+</footer>
+
+
+
+  <script>
+
+      function showTracks(albumId) {
+      // Скрываем все контейнеры с треками
+      document.querySelectorAll('.tracks-container').forEach(container => {
+        container.style.display = 'none';
+      });
+   
+      const activeContainer = document.getElementById(albumId);
+      if (activeContainer) {
+        activeContainer.style.display = 'block';
+   
+        setTimeout(() => {
+          activeContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+      }
+    }
+       document.addEventListener('DOMContentLoaded', () => {
+     
+    });
+  </script>
+</body>
+</html>
