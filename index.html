@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ATEEZ Promo</title>
+<style>
+  html {
+    background: url('https://assets.readbrightly.com/wp-content/uploads/2021/09/9780593324813-8.jpeg') no-repeat center top;
+    background-size: cover;
+    background-attachment: scroll;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    background-color: transparent;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  header {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    z-index: 3;
+  }
+
+  nav a {
+    color: black;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s; transition: color 0.3s;
+  }
+
+    nav a:hover {
+      color: #ff9900;
+    }
+
+  .logo-block {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-line {
+    width: 670px;
+    height: 85px;
+    background: black;
+    transform: skewX(-20deg);
+    margin-bottom: 20px;
+  }
+
+  .logo-text {
+    font-size: 210px;
+    font-weight: bold;
+    letter-spacing: 11px;
+    color: black;
+  }
+
+  .main-content {
+    padding: 100px 20px;
+  }
+
+  .section1 {
+    max-width: 900px;
+    margin: 0 auto 110px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 70px;
+    border-radius: 10px;
+  }
+
+  .grid-section {
+    display: grid;
+    width: 100%;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.5);
+    place-items: center;
+  }
+
+  .section h2 {
+    margin-bottom: 20px;
+  }
+
+  .section p {
+    line-height: 1.6;
+  }
+
+   .logo-img {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    width: 80px; 
+    height: auto;
+    z-index: 5; 
+  }
+
+
+  .promo-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .promo-image {
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .promo-video {
+    width: 100%;
+    max-width: 560px;
+  }
+
+
+  .albums-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+  }
+
+  .album-item {
+    text-align: center;
+  }
+
+  .album-cover {
+    width: 100%;
+    max-width: 290px;
+    height: 290px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+
+
+  .seonghwa-block {
+    max-width: 1200px;
+    margin: 140px auto 20px;
+    padding: 0 20px;
+  }
+
+  .seonghwa-title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 50px;
+    color: white;
+  }
+
+  .seonghwa-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .seonghwa-main {
+    flex: 1 1 500px;
+    max-width: 500px;
+  }
+
+  .seonghwa-side {
+    flex: 1 1 320px;
+    max-width: 330px;
+    display: flex;
+    gap: 15px;
+  }
+
+  .seonghwa-side-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .seonghwa-img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  }
+
+  .seonghwa-side-img {
+    width: 140px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  }
+
+
+  .tour-banner {
+    position: relative;
+    max-width: 100%;
+    margin-top: 130px;
+  }
+
+  .tour-banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+  }
+
+  .tour-banner-text {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    max-width: 90%;
+  }
+
+  .tour-title {
+    text-align: center;
+    color: black;
+    font-size: 28px;
+    margin: 60px 0 30px;
+  }
+
+  .tour-photos {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .tour-photo-container {
+    display: inline-block;
+    position: relative;
+    width: 320px;
+    height: 200px;
+    margin-right: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  }
+
+  .tour-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+  }
+
+  .tour-photo-container:hover img {
+    filter: brightness(60%);
+  }
+
+  .tour-caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .tour-photo-container:hover .tour-caption {
+    opacity: 1;
+  }
+
+  .newsletter {
+    max-width: 700px;
+    margin: 180px auto 150px;
+    background-color: rgba(0,0,0,0.6);
+    padding: 60px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+  }
+
+  .newsletter h2 {
+    color: white;
+    margin-bottom: 40px;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .name-fields {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .newsletter input,
+  .newsletter select {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+  }
+
+  .newsletter input[type="text"] {
+    flex: 1;
+  }
+
+  .newsletter input[type="email"] {
+    width: 100%;
+  }
+
+  .newsletter select {
+    width: 100%;
+  }
+
+  .newsletter button {
+    margin-top: 10px;
+    padding: 14px;
+    background-color: #ff9900;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  
+  footer {
+    background-color: rgba(34, 34, 34, 0.8);
+    padding: 30px 20px;
+    margin-top: 75px;
+    text-align: center;
+    color: white;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+  }
+
+  .social-links img {
+    width: 30px;
+  }
+
+  .copyright {
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  
+
+
+  @media (max-width: 1024px) {
+    .logo-text {
+      font-size: 140px;
+      letter-spacing: 6px;
+    }
+
+    .logo-line {
+      width: 400px;
+      height: 50px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    header nav a {
+      font-size: 14px;
+      margin-left: 10px;
+    }
+
+    .logo-text {
+      font-size: 90px;
+      letter-spacing: 3px;
+    }
+
+    .logo-line {
+      width: 280px;
+      height: 40px;
+    }
+
+    .logo-block {
+      padding-top: 40px;
+    }
+
+    .logo-img {
+      width: 50px;
+      top: 15px;
+      left: 15px;
+    }
+
+ 
+    .promo-block {
+      flex-direction: column;
+      padding: 60px 20px;
+      gap: 30px;
+    }
+
+    .promo-image,
+    .promo-video {
+      max-width: 100%;
+    }
+
+   
+    .albums-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .album-item {
+      max-width: 290px;
+      margin: 0 auto;
+    }
+
+
+    .seonghwa-content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .seonghwa-main {
+      max-width: 100%;
+    }
+
+    .seonghwa-side {
+      max-width: 100%;
+      justify-content: center;
+    }
+
+    .seonghwa-side-img {
+      width: 100%;
+      max-width: 140px;
+    }
+
+ 
+    .tour-banner-text {
+      font-size: 16px;
+      padding: 10px 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logo-text {
+      font-size: 60px;
+      letter-spacing: 2px;
+    }
+
+    .logo-line {
+      width: 200px;
+      height: 30px;
+    }
+
+    header {
+      top: 15px;
+      right: 20px;
+    }
+
+   
+    .seonghwa-side {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .seonghwa-side-column {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .seonghwa-side-img {
+      width: calc(50% - 10px);
+      max-width: 160px;
+    }
+
+    .newsletter {
+      padding: 40px 20px;
+      margin: 100px auto;
+    }
+
+    .name-fields {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+</style>
+
+<script>
+  window.addEventListener('scroll', function () {
+    let scrollPos = window.scrollY;
+    document.body.style.backgroundPosition = 'center ' + (scrollPos * 0.5) + 'px';
+  });
+</script>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="about.html">О группе</a>
+      <a href="music.html">Дискография</a>
+    </nav>
+  </header>
+
+ <img src="logo1.jpg" alt="ATEEZ Logo" class="logo-img" width="100" height="70">
+
+
+
+  <div class="logo-block">
+    <div class="logo-line"></div>
+    <div class="logo-text">ATEEZ</div>
+  </div>
+
+
+  <div class="promo-block">
+    <div class="promo-image">
+      <img src="https://i1.sndcdn.com/artworks-6HF0nj6vSecm-0-t500x500.jpg" alt="ATEEZ Promo" class="seonghwa-img">
+    </div>
+
+    <div class="promo-video">
+      <iframe width="100%" height="315" 
+        src="https://www.youtube.com/embed/iYcyGDloYG4" 
+        title="ATEEZ Video" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen 
+        style="border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+      </iframe>
+    </div>
+  </div>
+
+
+<div class="albums-container" style="max-width: 1200px; margin: 140px auto; padding: 0 50px;">
+  <div style="display: flex; justify-content: center; gap: 60px; margin-bottom: 60px;">
+    
+    <div style="text-align: center;">
+      <img src="https://lastfm.freetls.fastly.net/i/u/300x300/20fc2c539ddb5613ccec12b6d01c0cff.jpg" 
+           alt="THE WORLD EP.FIN : WILL" 
+           style="width: 290px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+      <p style="margin-top: 15px; font-weight: bold; font-size: 18px; color: black;">THE WORLD EP.FIN : WILL</p>
+    </div>
+    
+    <div style="text-align: center;">
+      <img src="https://m.media-amazon.com/images/I/611nSBpyMuL._AC_UF894,1000_QL80_.jpg" 
+           alt="THE WORLD EP.1 : MOVEMENT" 
+           style="width: 290px; height: 290px; object-fit: cover; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+      <p style="margin-top: 15px; font-weight: bold; font-size: 18px; color: black;">THE WORLD EP.1 : MOVEMENT</p>
+    </div>
+    
+    <div style="text-align: center;">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTirM5YXsVALKC2WzZRJZ_7YEZG5znhi5DATg&s" 
+           alt="BEYOND : ZERO" 
+           style="width: 290px; height: 290px; object-fit: cover; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+      <p style="margin-top: 15px; font-weight: bold; font-size: 18px; color: black;">BEYOND : ZERO</p>
+    </div>
+  </div>
+  
+  <div style="display: flex; justify-content: center; gap: 60px;">
+    <!-- Вторая линия - 2 альбома -->
+    <div style="text-align: center;">
+      <img src="https://th.bing.com/th/id/OIP.CwoXjyVzOquoXFIWWpzy4wHaHa?cb=iwc1&rs=1&pid=ImgDetMain" 
+           alt="ZERO: FEVER EPILOGUE" 
+           style="width: 290px; height: 290px; object-fit: cover; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+      <p style="margin-top: 15px; font-weight: bold; font-size: 18px; color: black;">ZERO: FEVER EPILOGUE</p>
+    </div>
+    
+    <div style="text-align: center;">
+      <img src="https://th.bing.com/th/id/OIP.EZSgAqDB8y_eNhr2JkLovQHaHa?cb=iwc1&rs=1&pid=ImgDetMain" 
+           alt="ZERO: FEVER PART.1" 
+           style="width: 290px; height: 290px; object-fit: cover; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+      <p style="margin-top: 15px; font-weight: bold; font-size: 18px; color: black;">ZERO: FEVER PART.1</p>
+    </div>
+  </div>
+</div>
+
+<style>
+
+  @media (max-width: 768px) {
+    .albums-container > div {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    
+    .albums-container > div > div {
+      margin-bottom: 30px;
+    }
+  }
+</style>
+
+  <div class="tour-banner">
+    <img src="https://www.tacomadome.org/assets/img/2025-TACOMA-ATEEZ-WEB-2000x750-fdb7b49f9f.jpg"
+         alt="ATEEZ Tour" 
+         class="tour-banner-img">
+
+    <div class="tour-banner-text">
+      ATEEZ 2025 WORLD TOUR [IN YOUR FANTASY]<br>
+      в Северной Америке пройдет в Tacoma Dome 30 июля!
+    </div>
+  </div>
+
+  <h2 class="tour-title">Мировое турне In Your Fantasy 2025</h2>
+
+  <div class="tour-photos">
+    <div class="tour-photo-container">
+      <img src="https://th.bing.com/th/id/R.2763e9e833849d202399581eb7de58bc?rik=VSkroeW1wh%2bGjw&pid=ImgRaw&r=0&sres=1&sresct=1" alt="Arthur Ashe Stadium">
+      <div class="tour-caption">13 июля, Arthur Ashe Stadium</div>
+    </div>
+
+    <div class="tour-photo-container">
+      <img src="https://media.coliseum-online.com/2022/11/Coliseum-Summit-News-Baltimore-Arena-naming-rights-and-re-development.jpg" alt="Baltimore Arena">
+      <div class="tour-caption">16 июля, Baltimore - CFG Bank Arena</div>
+    </div>
+
+    <div class="tour-photo-container">
+      <img src="https://th.bing.com/th/id/R.b81746965631b482adffb4e99322fc0d?rik=ErOukQRJTe6RDQ&pid=ImgRaw&r=0" alt="Bridgestone Arena">
+      <div class="tour-caption">19 июля, Bridgestone Arena</div>
+    </div>
+
+    <div class="tour-photo-container">
+      <img src="https://th.bing.com/th/id/OIP.De6Ts-aa7bLCnLbS6SGVngAAAA?cb=iwc1&w=320&h=172&rs=1&pid=ImgDetMain" alt="The Cubby Bear">
+      <div class="tour-caption">26 июля, The Cubby Bear</div>
+    </div>
+
+    <div class="tour-photo-container">
+      <img src="https://th.bing.com/th/id/OIP.zQepGJHrfQYzDu8MWcV1VAHaFj?cb=iwc1&w=2400&h=1800&rs=1&pid=ImgDetMain" alt="SAP Center San Jose">
+      <div class="tour-caption">2 августа, SAP Center San Jose</div>
+    </div>
+
+    <div class="tour-photo-container">
+      <img src="https://th.bing.com/th/id/R.20834e6a4dfd3c0ede0cee6f1730c0b1?rik=rYCS2XcVGKAoTw&pid=ImgRaw&r=0" alt="Banc of California Stadium">
+      <div class="tour-caption">8 августа, Banc of California Stadium</div>
+    </div>
+
+    <div class="tour-photo-container">
+      <img src="https://th.bing.com/th/id/OIP.iOK_g11cIbAFgXfYRMteGAHaD3?cb=iwc1&rs=1&pid=ImgDetMain" alt="Desert Diamond Arena">
+      <div class="tour-caption">12 августа, Desert Diamond Arena, Glendale</div>
+    </div>
+  </div>
+
+  <div class="seonghwa-block">
+    <h2 class="seonghwa-title">Сонхва из ATEEZ блистает в превью фотосессии для Esquire Korea за январь 2025 года</h2>
+
+    <div class="seonghwa-content">
+      <div class="seonghwa-main">
+        <img src="https://www.yesasia.ru/wp-content/uploads/2024/12/241219-esquire-korea-january-2025-preview-with-seonghwa-v0-tx2yyxvc4t7e1.webp"
+             alt="Seonghwa Main"
+             class="seonghwa-img">
+      </div>
+
+      <div class="seonghwa-side">
+        <div class="seonghwa-side-column">
+          <img src="https://www.yesasia.ru/wp-content/uploads/2024/12/241219-esquire-korea-january-2025-preview-with-seonghwa-v0-lakm3yvc4t7e1.webp"
+               alt="Mini 1"
+               class="seonghwa-side-img">
+          <img src="https://www.yesasia.ru/wp-content/uploads/2024/12/241219-esquire-korea-january-2025-preview-with-seonghwa-v0-46s86yvc4t7e1.webp"
+               alt="Mini 2"
+               class="seonghwa-side-img">
+          <img src="https://www.yesasia.ru/wp-content/uploads/2024/12/241219-esquire-korea-january-2025-preview-with-seonghwa-v0-hs8vqyvc4t7e1.webp"
+               alt="Mini 3"
+               class="seonghwa-side-img">
+        </div>
+
+        <div class="seonghwa-side-column">
+          <img src="https://www.yesasia.ru/wp-content/uploads/2024/12/241219-esquire-korea-january-2025-preview-with-seonghwa-v0-e0mfgyvc4t7e1.webp"
+               alt="Mini 4"
+               class="seonghwa-side-img">
+          <img src="https://www.yesasia.ru/wp-content/uploads/2024/12/241219-esquire-korea-january-2025-preview-with-seonghwa-v0-xuujvyvc4t7e1.webp"
+               alt="Mini 5"
+               class="seonghwa-side-img">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="newsletter">
+    <h2>Подпишись на новости ATEEZ</h2>
+
+    <form class="newsletter-form">
+      <div class="name-fields">
+        <input type="text" placeholder="Имя" required>
+        <input type="text" placeholder="Фамилия" required>
+      </div>
+
+      <input type="email" placeholder="Электронная почта" required>
+
+      <select required>
+        <option value="">Выберите страну</option>
+        <option>Россия</option>
+        <option>Казахстан</option>
+        <option>Южная Корея</option>
+        <option>США</option>
+        <option>Япония</option>
+        <option>Другая страна</option>
+      </select>
+
+      <button type="submit">Подписаться</button>
+    </form>
+  </div>
+
+  <footer>
+    <p style="margin-bottom: 20px; font-size: 18px;">Следите за ATEEZ в соцсетях</p>
+
+    <div class="social-links">
+      <a href="https://www.instagram.com/ateez_official_" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram">
+      </a>
+      <a href="https://www.tiktok.com/@ateez_official_" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
+      </a>
+      <a href="https://www.youtube.com/c/ATEEZofficial" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+      </a>
+      <a href="https://twitter.com/ATEEZofficial" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384065.png" alt="X/Twitter">
+      </a>
+    </div>
+
+    <p class="copyright">© 2025 ATEEZ. Все права защищены.</p>
+  </footer>
+
+</body>
+</html>
